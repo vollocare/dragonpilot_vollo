@@ -30,7 +30,7 @@ rm -rf $BUILD_DIR
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 git init
-git remote add origin https://github.com/dragonpilot/dev.git
+git remote add origin https://github.com/dragonpilot-community/dev.git
 git checkout --orphan $SOURCE_BRANCH
 
 # do the files copy
@@ -61,11 +61,6 @@ scons -j$(nproc) --minimal
 #  scons -j$(nproc) panda/
 #fi
 scons -j$(nproc) panda/
-
-# panda tici
-rm -f panda_tici/board/obj/panda.bin.signed
-rm -f panda_tici/board/obj/panda_h7.bin.signed
-scons -j$(nproc) panda_tici/
 
 # Ensure no submodules in release
 if test "$(git submodule--helper list | wc -l)" -gt "0"; then
