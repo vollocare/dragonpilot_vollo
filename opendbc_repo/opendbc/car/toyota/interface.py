@@ -112,6 +112,11 @@ class CarInterface(CarInterfaceBase):
           ret.lateralTuning.pid.kf = 0.00004
           break
 
+      # 專為我自己的車子的參數 因我的 fwVersion 不是在上面條件內
+      ret.lateralTuning.pid.kpV = [0.15]
+      ret.lateralTuning.pid.kiV = [0.05]
+      ret.lateralTuning.pid.kf = 0.00004
+
     elif candidate in (CAR.TOYOTA_CHR, CAR.TOYOTA_CAMRY, CAR.TOYOTA_SIENNA, CAR.LEXUS_CTH, CAR.LEXUS_NX):
       # TODO: Some of these platforms are not advertised to have full range ACC, do they really all have sng?
       stop_and_go = True
